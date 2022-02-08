@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.c
+stdio.h
+-
+limits.h
+-
+assert.h
+-
+array.h
+C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.h
+
+C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.h
+stddef.h
+-
+
+C:/Users/ivano/CLionProjects/_course_/libs/data_structures/vector/vector.c
+vector.h
+C:/Users/ivano/CLionProjects/_course_/libs/data_structures/vector/vector.h
+
+C:/Users/ivano/CLionProjects/_course_/libs/data_structures/vector/vector.h
+
