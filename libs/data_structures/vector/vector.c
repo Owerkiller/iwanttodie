@@ -30,7 +30,7 @@ v->capacity=newCapacity;
         v->size = v->capacity;
 }
 
-void clearVector(vector *v){
+void clear(vector *v){
     v->size = 0;
 }
 

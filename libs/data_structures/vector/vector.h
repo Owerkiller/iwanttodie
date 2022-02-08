@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #ifndef _COURSE__VECTOR_H
 #define _COURSE__VECTOR_H
