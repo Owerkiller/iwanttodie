@@ -19,6 +19,10 @@ stdio.h
 -
 stdlib.h
 -
+stdbool.h
+-
+assert.h
+-
 
 C:/Users/ivano/CLionProjects/_course_/main.c
 libs/data_structures/vector/vector.h
