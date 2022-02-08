@@ -1,8 +1,8 @@
 #include <malloc.h>
 #include "vector.h"
 
-void _exitIfError(int *a){
-    if (a == NULL){
+void _exitIfError(int *a) {
+    if (a == NULL) {
         fprintf(stderr, "bad alloc");
         exit(1);
     }
@@ -12,7 +12,7 @@ vector createVector(size_t n) {
     int *a;
     if (n) {
         a = (int *) malloc(sizeof(int) * n);
-            _exitIfError(a);
+        _exitIfError(a);
     } else
         a = NULL;
 
@@ -46,11 +46,11 @@ void clearVector(vector *v) {
 }
 
 bool isEmpty(vector *v) {
-    return (v->size != 0 ? true : false);
+    return (v->size != 0);
 }
 
 bool isFull(vector *v) {
-    return (v->size == v->capacity ? true : false);
+    return (v->size == v->capacity);
 }
 
 int getVectorValue(vector *v, size_t i) {
@@ -68,10 +68,30 @@ void pushBack(vector *v, int x) {
     v->data[v->size] = x;
 }
 
-void popBack(vector *v){
-    if (v->size==0){
+void popBack(vector *v) {
+    if (v->size == 0) {
         fprintf(stderr, "haven't elements in array");
         exit(1);
     } else
- v->size--;
+        v->size--;
+}
+
+int *atVector(vector *v, size_t index) {
+    if (index >= v->size) {
+        fprintf(stderr, "IndexError: a[%zu] is not exists", index);
+        exit(322);
+    } else
+        return v->data + index;
+}
+
+int *back(vector *v){
+    _exitIfError(v->data);
+
+    return v->data+v->size-1;
+}
+
+int* front(vector *v){
+    _exitIfError(v->data);
+
+    return v->data;
 }
