@@ -5,7 +5,7 @@ void test_pushBack_emptyVector1() {
 
     pushBack(&v, 1);
 
-    assert(v.data[1] == 1);
+    assert(v.data[0] == 1);
     assert(v.size == 1);
     assert(v.capacity == 1);
 
@@ -17,7 +17,7 @@ void test_pushBack_emptyVector2() {
 
     pushBack(&v, 3);
 
-    assert(v.data[1] == 3);
+    assert(v.data[0] == 3);
     assert(v.size == 1);
     assert(v.capacity == 3);
 
@@ -29,23 +29,28 @@ void test_pushBack_emptyVector() {
     test_pushBack_emptyVector2();
 }
 
-void test_pushBac_fullVector() {
+void test_pushBack_fullVector() {
     vector v = createVector(1);
 
     pushBack(&v, 5);
     pushBack(&v, 1);
     pushBack(&v, 7);
 
-    assert(v.data[1] == 5);
-    assert(v.data[2] == 1);
-    assert(v.data[3] == 7);
+    assert(v.data[0] == 5);
+    assert(v.data[1] == 1);
+    assert(v.data[2] == 7);
     assert(v.size == 3);
     assert(v.capacity == 4);
 
     clear(&v);
 }
 
-void test_popBack_NonEmptyVector() {
+void test_pushBack(){
+    test_pushBack_emptyVector();
+    test_pushBack_fullVector();
+}
+
+void test_popBack_NonEmptyVector1() {
     vector v = createVector(0);
     pushBack(&v, 10);
 
@@ -55,6 +60,25 @@ void test_popBack_NonEmptyVector() {
     assert(v.capacity == 1);
 
     clear(&v);
+}
+
+void test_popBack_NonEmptyVector2() {
+    vector v = createVector(0);
+    pushBack(&v, 3);
+    pushBack(&v, 7);
+
+    assert(v.size == 2);
+    popBack(&v);
+    assert(v.data[0] == 3);
+    assert(v.size == 1);
+    assert(v.capacity == 2);
+
+    clear(&v);
+}
+
+void test_popBack(){
+    test_popBack_NonEmptyVector1();
+    test_popBack_NonEmptyVector2();
 }
 
 void test_atVector_nonEmptyVector() {
@@ -78,6 +102,11 @@ void test_atVector_requestToLastElement() {
     clear(&v);
 }
 
+void test_atVector(){
+    test_atVector_nonEmptyVector();
+    test_atVector_requestToLastElement();
+}
+
 void test_back_oneElementInVector() {
     vector v = createVector(1);
     pushBack(&v, 3);
@@ -97,11 +126,9 @@ void test_front_oneElementInArray() {
 }
 
 void test() {
-    test_pushBack_emptyVector();
-    test_pushBac_fullVector();
-    test_popBack_NonEmptyVector();
-    test_atVector_nonEmptyVector();
-    test_atVector_requestToLastElement();
+    test_pushBack();
+    test_popBack();
+    test_atVector();
     test_back_oneElementInVector();
     test_front_oneElementInArray();
 }

@@ -58,14 +58,14 @@ int getVectorValue(vector *v, size_t i) {
 }
 
 void pushBack(vector *v, int x) {
+    if (v->capacity == 0)
+        reserve(v, 1);
+
     if (v->size == v->capacity)
         reserve(v, 2 * v->capacity);
-    if (v->capacity == 0) {
-        reserve(v, 1);
-    }
 
-    v->size++;
     v->data[v->size] = x;
+    v->size++;
 }
 
 void popBack(vector *v) {
@@ -84,13 +84,13 @@ int *atVector(vector *v, size_t index) {
         return v->data + index;
 }
 
-int *back(vector *v){
+int *back(vector *v) {
     _exitIfError(v->data);
 
-    return v->data+v->size-1;
+    return v->data + v->size - 1;
 }
 
-int* front(vector *v){
+int *front(vector *v) {
     _exitIfError(v->data);
 
     return v->data;
