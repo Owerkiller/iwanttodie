@@ -77,3 +77,32 @@ void swapColumns(matrix m, int i1, int i2) {
         swap(&m.values[i][i1], &m.values[i][i2]);
     }
 }
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+    int rowCriteria[m.nRows];
+    for (int i = 0; i < m.nRows; i++)
+        rowCriteria[i] = criteria(m.values[i], m.nCols);
+
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = i; j > 0 && rowCriteria[j - 1]; j--) {
+            swap(&rowCriteria[j - 1], &rowCriteria[i]);
+            swapRows(m, j, j - 1);
+        }
+}
+
+void insertionSortColsMatrixByColCriteria (matrix m, int (*criteria)(int *, int)) {
+    int colsCriteria[m.nCols];
+    for (int j = 0; j < m.nCols; j++) {
+        int colsElements[m.nRows];
+        for (int i = 0; i<m.nRows; i++)
+            colsElements[i] = m.values[i][j];
+
+        colsCriteria[j] = criteria(colsElements, m.nRows);
+    }
+
+    for (int i = 1; i < m.nCols; i++)
+        for (int j = i; j > 0 && colsCriteria[j-1] > colsCriteria[j]  ; j--) {
+            swap(&colsCriteria[j-1], &colsCriteria[j]);
+            swapColumns(m, j, j-1);
+        }
+}
