@@ -177,13 +177,35 @@ position getMaxValuePos(matrix m) {
     p.rowIndex = 0;
     int max = m.values[0][0];
 
-    for (int i = 1; i < m.nRows ; i++)
+    for (int i = 1; i < m.nRows; i++)
         for (int j = 0; j < m.nCols; j++)
-            if (m.values[i][j] > max){
+            if (m.values[i][j] > max) {
                 max = m.values[i][j];
                 p.colIndex = j;
                 p.rowIndex = i;
-        }
+            }
     return (position) {p.rowIndex, p.colIndex};
 }
 
+matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+
+    int k = 0;
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
+            m.values[i][j] = a[k++];
+
+    return m;
+}
+
+matrix *createArrayOfMatrixFromArray ( const int *values, size_t nMatrices, size_t nRows, size_t nCols) {
+    matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
+
+    int l = 0;
+    for (int k = 0; k < nMatrices; k++)
+        for (int i = 0; i < nRows; i++)
+            for (int j = 0; j < nCols; j++)
+                ms[k].values[i][j] = values[l++];
+
+    return ms;
+}
