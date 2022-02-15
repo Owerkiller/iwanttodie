@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "../../algorithms/algorithms.h"
 #include <assert.h>
-#include <stdbool.h>
 #include <string.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
@@ -68,7 +67,7 @@ void swapRows(matrix m, int i1, int i2) {
     ifIndexOutOfSizeArray(m.nRows, i1);
     ifIndexOutOfSizeArray(m.nCols, i2);
 
-    swap(&m.values[i1], &m.values[i2]);
+    swap(m.values[i1], m.values[i2]);
 }
 
 void swapColumns(matrix m, int i1, int i2) {
@@ -144,3 +143,47 @@ bool isSymmetricMatrix(matrix m) {
 
     return isSymmetric;
 }
+
+void transposeSquareMatrix(matrix m) {
+    if (!isSquareMatrix(m)) {
+        fprintf(stderr, "it isn't square matrix");
+        exit(69);
+    }
+
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = i; j < m.nCols; j++)
+            swap(&m.values[i][j], &m.values[j][i]);
+}
+
+position getMinValuePos(matrix m) {
+    position p;
+    p.colIndex = 0;
+    p.rowIndex = 0;
+    int min = m.values[0][0];
+
+    for (int i = 1; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (m.values[i][j] < min) {
+                min = m.values[i][j];
+                p.colIndex = j;
+                p.rowIndex = i;
+            }
+    return (position) {p.rowIndex, p.colIndex};
+}
+
+position getMaxValuePos(matrix m) {
+    position p;
+    p.colIndex = 0;
+    p.rowIndex = 0;
+    int max = m.values[0][0];
+
+    for (int i = 1; i < m.nRows ; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (m.values[i][j] > max){
+                max = m.values[i][j];
+                p.colIndex = j;
+                p.rowIndex = i;
+        }
+    return (position) {p.rowIndex, p.colIndex};
+}
+

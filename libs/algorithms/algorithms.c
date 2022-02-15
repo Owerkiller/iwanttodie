@@ -1,9 +1,9 @@
 #include "algorithms.h"
 
 void swap(int *a, int *b) {
-    *a ^= *b;
-    *b ^= *a;
-    *a ^= *b;
+    int k =  *a;
+    *a = *b;
+    *b = k;
 }
 
 int split(int *a, const int left, const int right, const int pivot) {

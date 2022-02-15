@@ -148,6 +148,14 @@ int main(){
     swapColumns(m, 0, 1);
     printf("\n");
     outputMatrix(m);
+    printf("\n");
+    transposeSquareMatrix(m);
+    outputMatrix(m);
+    printf("\n");
+    position p= getMinValuePos(m);
+    printf("%d %d   ", p.colIndex, p.rowIndex);
+    p= getMaxValuePos(m);
+    printf("%d %d   ", p.colIndex, p.rowIndex);
 
     return 0;
 }

@@ -2,6 +2,7 @@
 #define _COURSE__MATRIX_H
 
 #include <malloc.h>
+#include <stdbool.h>
 
 typedef struct matrix {
     int **values;
@@ -16,24 +17,40 @@ typedef struct position {
 
 matrix getMemMatrix(int nRows, int nCols);
 
-matrix  *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
+matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
 
-void freeMemMatrix (matrix m);
+void freeMemMatrix(matrix m);
 
 void freeMemMatrices(matrix *ms, int nMatrices);
 
 void inputMatrix(matrix m);
 
-void inputMatrices (matrix *ms, int nMatrices);
+void inputMatrices(matrix *ms, int nMatrices);
 
-void outputMatrix( matrix m);
+void outputMatrix(matrix m);
 
-void outputMatrices(matrix* ms, int nMatrices);
+void outputMatrices(matrix *ms, int nMatrices);
 
 void swapRows(matrix m, int i1, int i2);
 
 void swapColumns(matrix m, int i1, int i2);
 
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int));
 
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int));
+
+bool isSquareMatrix(matrix m);
+
+bool areTwoMatricesEqual(matrix m1, matrix m2);
+
+bool isEMatrix(matrix m);
+
+bool isSymmetricMatrix(matrix m);
+
+void transposeSquareMatrix(matrix m);
+
+position getMinValuePos(matrix m);
+
+position getMaxValuePos(matrix m);
 
 #endif //_COURSE__MATRIX_H
