@@ -91,19 +91,34 @@ libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structures.dir/vector/vector.c.s"
 	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\libs\data_structures && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ivano\CLionProjects\_course_\libs\data_structures\vector\vector.c -o CMakeFiles\data_structures.dir\vector\vector.c.s
 
+libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.obj: libs/data_structures/CMakeFiles/data_structures.dir/flags.make
+libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.obj: ../libs/data_structures/matrix/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.obj"
+	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\libs\data_structures && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\data_structures.dir\matrix\main.c.obj -c C:\Users\ivano\CLionProjects\_course_\libs\data_structures\matrix\main.c
+
+libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/data_structures.dir/matrix/main.c.i"
+	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\libs\data_structures && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ivano\CLionProjects\_course_\libs\data_structures\matrix\main.c > CMakeFiles\data_structures.dir\matrix\main.c.i
+
+libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structures.dir/matrix/main.c.s"
+	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\libs\data_structures && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ivano\CLionProjects\_course_\libs\data_structures\matrix\main.c -o CMakeFiles\data_structures.dir\matrix\main.c.s
+
 # Object files for target data_structures
 data_structures_OBJECTS = \
 "CMakeFiles/data_structures.dir/matrix/matrix.c.obj" \
-"CMakeFiles/data_structures.dir/vector/vector.c.obj"
+"CMakeFiles/data_structures.dir/vector/vector.c.obj" \
+"CMakeFiles/data_structures.dir/matrix/main.c.obj"
 
 # External object files for target data_structures
 data_structures_EXTERNAL_OBJECTS =
 
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj
+libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/build.make
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libdata_structures.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C static library libdata_structures.a"
 	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\libs\data_structures && $(CMAKE_COMMAND) -P CMakeFiles\data_structures.dir\cmake_clean_target.cmake
 	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug\libs\data_structures && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\data_structures.dir\link.txt --verbose=$(VERBOSE)
 

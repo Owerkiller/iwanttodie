@@ -129,6 +129,30 @@ data_structures/fast:
 	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
 .PHONY : data_structures/fast
 
+matrix/main.obj: matrix/main.c.obj
+.PHONY : matrix/main.obj
+
+# target to build an object file
+matrix/main.c.obj:
+	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.obj
+.PHONY : matrix/main.c.obj
+
+matrix/main.i: matrix/main.c.i
+.PHONY : matrix/main.i
+
+# target to preprocess a source file
+matrix/main.c.i:
+	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.i
+.PHONY : matrix/main.c.i
+
+matrix/main.s: matrix/main.c.s
+.PHONY : matrix/main.s
+
+# target to generate assembly for a file
+matrix/main.c.s:
+	cd /d C:\Users\ivano\CLionProjects\_course_\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/main.c.s
+.PHONY : matrix/main.c.s
+
 matrix/matrix.obj: matrix/matrix.c.obj
 .PHONY : matrix/matrix.obj
 
@@ -186,6 +210,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... data_structures
+	@echo ... matrix/main.obj
+	@echo ... matrix/main.i
+	@echo ... matrix/main.s
 	@echo ... matrix/matrix.obj
 	@echo ... matrix/matrix.i
 	@echo ... matrix/matrix.s

@@ -1,4 +1,5 @@
 #include "libs/data_structures/vector/vector.h"
+#include "libs/data_structures//matrix/matrix.h"
 
 void test_pushBack_emptyVector1() {
     vector v = createVector(0);
@@ -133,9 +134,20 @@ void test() {
     test_front_oneElementInArray();
 }
 
-int main() {
 
-    test();
+int main(){
+    matrix m = getMemMatrix(3, 3);;
+    inputMatrix(m);
+    printf("\n");
+    outputMatrix(m);
+    printf("\n");
+    swapRows(m, 0, 1);
+    printf("\n");
+    outputMatrix(m);
+    printf("\n");
+    swapColumns(m, 0, 1);
+    printf("\n");
+    outputMatrix(m);
 
     return 0;
 }

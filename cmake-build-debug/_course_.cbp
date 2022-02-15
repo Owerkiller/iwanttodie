@@ -159,6 +159,9 @@
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.h">
 			<Option target="_course_"/>
 		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/main.c">
+			<Option target="data_structures"/>
+		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.c">
 			<Option target="_course_"/>
 			<Option target="data_structures"/>

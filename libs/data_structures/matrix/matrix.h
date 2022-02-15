@@ -22,5 +22,18 @@ void freeMemMatrix (matrix m);
 
 void freeMemMatrices(matrix *ms, int nMatrices);
 
+void inputMatrix(matrix m);
+
+void inputMatrices (matrix *ms, int nMatrices);
+
+void outputMatrix( matrix m);
+
+void outputMatrices(matrix* ms, int nMatrices);
+
+void swapRows(matrix m, int i1, int i2);
+
+void swapColumns(matrix m, int i1, int i2);
+
+
 
 #endif //_COURSE__MATRIX_H
