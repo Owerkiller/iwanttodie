@@ -146,11 +146,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.c">
+			<Option target="algorithms"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.h">
+			<Option target="algorithms"/>
+		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.c">
 			<Option target="_course_"/>
 			<Option target="algorithms"/>
 		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.h">
+			<Option target="_course_"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.c">
+			<Option target="_course_"/>
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.h">
 			<Option target="_course_"/>
 		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/vector/vector.c">

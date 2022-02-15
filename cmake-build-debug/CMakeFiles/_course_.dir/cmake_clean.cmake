@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/_course_.dir/libs/algorithms/array/array.c.obj"
+  "CMakeFiles/_course_.dir/libs/data_structures/matrix/matrix.c.obj"
   "CMakeFiles/_course_.dir/libs/data_structures/vector/vector.c.obj"
   "CMakeFiles/_course_.dir/main.c.obj"
   "_course_.exe"

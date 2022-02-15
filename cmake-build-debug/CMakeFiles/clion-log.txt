@@ -1,7 +1,4 @@
 "C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\ivano\CLionProjects\_course_
 -- Configuring done
-CMake Error at libs/data_structures/CMakeLists.txt:1 (add_library):
-  No SOURCES given to target: data_structures
-
-
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Generating done
+-- Build files have been written to: C:/Users/ivano/CLionProjects/_course_/cmake-build-debug

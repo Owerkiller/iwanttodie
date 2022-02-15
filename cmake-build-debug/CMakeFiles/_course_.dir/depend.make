@@ -4,6 +4,9 @@
 CMakeFiles/_course_.dir/libs/algorithms/array/array.c.obj: \
  ../libs/algorithms/array/array.c \
  ../libs/algorithms/array/array.h
+CMakeFiles/_course_.dir/libs/data_structures/matrix/matrix.c.obj: \
+ ../libs/data_structures/matrix/matrix.c \
+ ../libs/data_structures/matrix/matrix.h
 CMakeFiles/_course_.dir/libs/data_structures/vector/vector.c.obj: \
  ../libs/data_structures/vector/vector.c \
  ../libs/data_structures/vector/vector.h
