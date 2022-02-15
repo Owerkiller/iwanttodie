@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "../../algorithms/algorithms.h"
 #include <assert.h>
+#include <stdbool.h>
+#include <string.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int) * nRows);
@@ -90,19 +92,55 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
         }
 }
 
-void insertionSortColsMatrixByColCriteria (matrix m, int (*criteria)(int *, int)) {
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
     int colsCriteria[m.nCols];
     for (int j = 0; j < m.nCols; j++) {
         int colsElements[m.nRows];
-        for (int i = 0; i<m.nRows; i++)
+        for (int i = 0; i < m.nRows; i++)
             colsElements[i] = m.values[i][j];
 
         colsCriteria[j] = criteria(colsElements, m.nRows);
     }
 
     for (int i = 1; i < m.nCols; i++)
-        for (int j = i; j > 0 && colsCriteria[j-1] > colsCriteria[j]  ; j--) {
-            swap(&colsCriteria[j-1], &colsCriteria[j]);
-            swapColumns(m, j, j-1);
+        for (int j = i; j > 0 && colsCriteria[j - 1] > colsCriteria[j]; j--) {
+            swap(&colsCriteria[j - 1], &colsCriteria[j]);
+            swapColumns(m, j, j - 1);
         }
+}
+
+bool isSquareMatrix(matrix m) {
+    return m.nRows = m.nCols;
+}
+
+bool areTwoMatricesEqual(matrix m1, matrix m2) {
+    bool isEqual = m1.nRows == m2.nRows && m1.nCols == m2.nCols;
+
+    for (int i = 0; i < m1.nRows && isEqual; i++)
+        if (memcmp(m1.values[i], m2.values[i], sizeof(int) * m1.nCols) != 0)
+            isEqual = false;
+
+    return isEqual;
+}
+
+bool isEMatrix(matrix m) {
+    bool isEMatrix = isSquareMatrix(m);
+
+    for (int i = 0; i < m.nRows && isEMatrix; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (i != j && m.values[i][j] != 0 || i == j && m.values[i][j] != 1)
+                isEMatrix = false;
+
+    return isEMatrix;
+}
+
+bool isSymmetricMatrix(matrix m) {
+    bool isSymmetric = isSquareMatrix(m);
+
+    for (int i = 0; i < m.nRows && isSymmetric; i++)
+        for (int j = 0; j < i; j++)
+            if (m.values[i][j] != m.values[j][i])
+                isSymmetric = false;
+
+    return isSymmetric;
 }

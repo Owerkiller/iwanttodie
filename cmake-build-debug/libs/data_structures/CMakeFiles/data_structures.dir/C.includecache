@@ -17,6 +17,10 @@ stdio.h
 C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.h
 assert.h
 -
+stdbool.h
+-
+string.h
+-
 
 C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.h
 malloc.h
