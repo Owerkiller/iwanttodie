@@ -13,5 +13,4 @@ CMakeFiles/_course_.dir/libs/data_structures/vector/vector.c.obj: \
  ../libs/data_structures/vector/vector.h
 CMakeFiles/_course_.dir/main.c.obj: \
  ../libs/data_structures/matrix/matrix.h \
- ../libs/data_structures/vector/vector.h \
  ../main.c
