@@ -265,6 +265,7 @@ void test_getSquareOfMatrixIfSymmetric_squareMatrix1() {
                     1, 3, 5
             },
             3, 3);
+
     getSquareOfMatrixIfSymmetric(&m1);
 
     matrix m2 = createMatrixFromArray(
@@ -397,6 +398,92 @@ void test_transposeIfMatrixHasNotEqualSumOfRows() {
     test_transposeIfMatrixHasNotEqualSumOfRows_MatrixHaveNotUniqeSumElemOfRows();
     test_transposeIfMatrixHasNotEqualSumOfRows_MatrixFromOneElement();
 }
+/////////////////////////////////////////---task 6---///////////////////////////////////////////////////////////////////
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+
+    if (m1.nRows != m2.nRows || m1.nCols != m2. nCols)
+        return false;
+
+    getMemMatrix(m1.nRows, m1.nCols);
+    matrix m = getMemMatrix(m1.nRows, m1.nCols);
+    m.nRows = m1.nRows;
+    m.nCols = m1.nCols;
+    for (int i = 0; i < m1.nRows; i++)
+        for (int j = 0; j < m2.nCols; j++) {
+            m.values[i][j] = 0;
+            for (int k = 0; k < m2.nRows; k++)
+                m.values[i][j] += m1.values[i][k] * m2.values[k][j];
+        }
+
+    bool isInverse = isEMatrix(m);
+    freeMemMatrix(m);
+    return isInverse;
+}
+
+/////////////////////////////////////////---test task 6---//////////////////////////////////////////////////////////////
+
+void test_isMutuallyInverseMatrices_ItsTrue() {
+    matrix m1 = createMatrixFromArray(
+            (int[])
+                    {2, 5, 7,
+                     6, 3, 4,
+                     5, -2, -3},
+            3, 3
+    );
+
+    matrix m2 = createMatrixFromArray(
+            (int[])
+                    {1, -1, 1,
+                     -38, 41, -34,
+                     27, -29, 24},
+            3, 3
+    );
+    assert(isMutuallyInverseMatrices(m1, m2) == true);
+}
+
+void test_isMutuallyInverseMatrices_ItsFalse() {
+    matrix m1 = createMatrixFromArray(
+            (int[])
+                    {2, 5, 7,
+                     6, 3, 4,
+                     5, -2, -3},
+            3, 3
+    );
+
+    matrix m2 = createMatrixFromArray(
+            (int[])
+                    {1, -1, 1,
+                     -38, 0, -34,
+                     27, -29, 24},
+            3, 3
+    );
+    assert(isMutuallyInverseMatrices(m1, m2) == false);
+}
+
+
+void test_isMutuallyInverseMatrices_NonSquareMatrix() {
+    matrix m1 = createMatrixFromArray(
+            (int[])
+                    {1, 2,
+                     3, 4,
+                     5, 6},
+            3, 2
+    );
+
+    matrix m2 = createMatrixFromArray(
+            (int[])
+                    {3, 4,
+                     5, 6,
+                     3, 2},
+            3, 2
+    );
+    assert(isMutuallyInverseMatrices(m1, m2) == false);
+}
+
+void test_isMutuallyInverseMatrices() {
+    test_isMutuallyInverseMatrices_ItsFalse();
+    test_isMutuallyInverseMatrices_ItsTrue();
+}
 
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
@@ -410,6 +497,8 @@ int main() {
     test_getSquareOfMatrixIfSymmetric();
 
     test_transposeIfMatrixHasNotEqualSumOfRows();
+
+    test_isMutuallyInverseMatrices();
 
     return 0;
 }
