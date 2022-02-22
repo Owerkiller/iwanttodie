@@ -2,12 +2,15 @@
 #include <assert.h>
 #include <stdio.h>
 
+//////////////////////---task 1---//////////////////////////////////////////////////////////////////////////////////////
 void swapRowsWithMinAndMaxElem(matrix m) {
     position minPos = getMinValuePos(m);
     position maxPos = getMaxValuePos(m);
 
     swapRows(m, minPos.rowIndex, maxPos.rowIndex);
 }
+
+/////////////////////////---tests task 1---/////////////////////////////////////////////////////////////////////////////
 
 void test_swapRowsWithMinAndMaxElem_maxAndMinInDifferentRows() {
     matrix m1 = createMatrixFromArray(
@@ -58,7 +61,7 @@ void test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow() {
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////---task 2---/////////////////////////////////////////////////////////////
 int getMax(int *a, int n) {
     int max = a[0];
     for (int i = 0; i < n; i++)
@@ -72,7 +75,7 @@ void sortRowsByMinElements(matrix m) {
 
 }
 
-
+///////////////////////////////////////---test task 2---////////////////////////////////////////////////////////////////
 void test_sortRowsByMinElements_squareMatrix() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
@@ -145,7 +148,7 @@ void test_sortRowsByMinElements() {
     test_sortRowsByMinElements_notSquareMatrix2();
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////---task 3---//////////////////////////////////////////////////////////////////////////
 int getMin(int *a, int n) {
     int min = a[0];
     for (int i = 0; i < n; i++)
@@ -158,6 +161,8 @@ void sortColsByMinElement(matrix m) {
     insertionSortColsMatrixByColCriteria(m, getMin);
 }
 
+
+////////////////////////////////////---tests task 3---//////////////////////////////////////////////////////////////////
 void test_sortColsByMinElement_squareMatrix() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
@@ -226,11 +231,12 @@ void test_sortColsByMinElement() {
     test_sortColsByMinElement_nonSquareMatrix2();
     test_sortColsByMinElement_squareMatrix();
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-matrix mulMatrices (matrix m1, matrix m2){
-    if (m1.nCols != m2.nRows){
+
+//////////////////////////////////////////---task 4---//////////////////////////////////////////////////////////////////
+matrix mulMatrices(matrix m1, matrix m2) {
+    if (m1.nCols != m2.nRows) {
         fprintf(stderr, "number of row and number of columns are different");
-        exit (420);
+        exit(420);
     }
 
     matrix product = getMemMatrix(m1.nRows, m2.nCols);
@@ -239,16 +245,18 @@ matrix mulMatrices (matrix m1, matrix m2){
         for (int j = 0; j < m2.nCols; j++) {
             product.values[i][j] = 0;
             for (int k = 0; k < m2.nRows; k++)
-            product.values[i][j] += m1.values[i][k] *m2.values[k][j];
+                product.values[i][j] += m1.values[i][k] * m2.values[k][j];
         }
     return (matrix) product;
 }
 
-void getSquareOfMatrixIfSymmetric(matrix *m){
+void getSquareOfMatrixIfSymmetric(matrix *m) {
     if (isSymmetricMatrix(*m))
         *m = mulMatrices(*m, *m);
 }
 
+
+///////////////////////////////////////--- test task 4---///////////////////////////////////////////////////////////////
 void test_getSquareOfMatrixIfSymmetric_squareMatrix1() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
@@ -273,9 +281,9 @@ void test_getSquareOfMatrixIfSymmetric_squareMatrix1() {
 void test_getSquareOfMatrixIfSymmetric_squareMatrix2() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                1, 5, 7,
-                5, 3, 3,
-                7, 3, 1
+                    1, 5, 7,
+                    5, 3, 3,
+                    7, 3, 1
             },
             3, 3);
     getSquareOfMatrixIfSymmetric(&m1);
@@ -290,11 +298,107 @@ void test_getSquareOfMatrixIfSymmetric_squareMatrix2() {
     assert(isTwoMatricesEqual(m1, m2));
 }
 
-void test_getSquareOfMatrixIfSymmetric(){
+void test_getSquareOfMatrixIfSymmetric() {
     test_getSquareOfMatrixIfSymmetric_squareMatrix1();
     test_getSquareOfMatrixIfSymmetric_squareMatrix2();
 }
+//////////////////////////////////////////////////////---task 5---//////////////////////////////////////////////////////
+bool isUnique(long long *a, int n) {
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < i; j++)
+            if (a[i] == a[j])
+                return false;
+    }
+    return true;
+}
 
+long long getSum(int *a, int n) {
+    long long sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += a[i];
+
+    return sum;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long a[m.nRows];
+    for (int i = 0; i < m.nRows; i++) {
+        a[i] = getSum(m.values[i], m.nCols);
+    }
+    if (isUnique(a, m.nRows))
+        transposeSquareMatrix(m);
+}
+
+
+/////////////////////////////////////---test task 5---//////////////////////////////////////////////////////////////////
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_MatrixHaveUniqeSumElemOfRows() {
+    matrix m1 = createMatrixFromArray(
+            (int[])
+                    {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9},
+            3, 3
+    );
+
+    transposeIfMatrixHasNotEqualSumOfRows(m1);
+
+    matrix m2 = createMatrixFromArray(
+            (int[])
+                    {1, 4, 7,
+                     2, 5, 8,
+                     3, 6, 9},
+            3, 3
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_MatrixHaveNotUniqeSumElemOfRows() {
+    matrix m1 = createMatrixFromArray(
+            (int[])
+                    {1, 2, 3,
+                     2, 0, 4,
+                     7, 8, 9},
+            3, 3
+    );
+
+    transposeIfMatrixHasNotEqualSumOfRows(m1);
+
+
+    matrix m2 = createMatrixFromArray(
+            (int[])
+                    {1, 2, 3,
+                     2, 0, 4,
+                     7, 8, 9},
+            3, 3
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+}
+
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_MatrixFromOneElement() {
+    matrix m1 = createMatrixFromArray(
+            (int[])
+                    {1},
+            1, 1
+    );
+
+    transposeIfMatrixHasNotEqualSumOfRows(m1);
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {1},
+            1, 1
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows() {
+    test_transposeIfMatrixHasNotEqualSumOfRows_MatrixHaveUniqeSumElemOfRows();
+    test_transposeIfMatrixHasNotEqualSumOfRows_MatrixHaveNotUniqeSumElemOfRows();
+    test_transposeIfMatrixHasNotEqualSumOfRows_MatrixFromOneElement();
+}
+
+//////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
     test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
     test_swapRowsWithMinAndMaxElem_maxAndMinInDifferentRows();
@@ -304,6 +408,8 @@ int main() {
     test_sortColsByMinElement();
 
     test_getSquareOfMatrixIfSymmetric();
+
+    test_transposeIfMatrixHasNotEqualSumOfRows();
 
     return 0;
 }
