@@ -19,4 +19,10 @@ assert.h
 -
 stdio.h
 -
+limits.h
+-
+limits.h
+-
+math.h
+-
 
