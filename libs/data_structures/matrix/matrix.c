@@ -23,6 +23,8 @@ void freeMemMatrix(matrix m) {
     for (size_t i = 0; i < m.nRows; i++)
         free(m.values[i]);
     free(m.values);
+    m.nRows=0;
+    m.nCols=0;
 }
 
 void freeMemMatrices(matrix *ms, int nMatrices) {
@@ -57,7 +59,7 @@ void outputMatrices(matrix *ms, int nMatrices) {
 }
 
 void ifIndexOutOfSizeArray(int size, int index) {
-    if (index >= size) {
+    if (index > size) {
         fprintf(stderr, "index %d out of range", index);
         exit(2);
     }

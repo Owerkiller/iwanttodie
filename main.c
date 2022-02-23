@@ -1,7 +1,10 @@
 #include "libs/data_structures//matrix/matrix.h"
+#include "libs/algorithms/algorithms.h"
 #include <assert.h>
 #include <stdio.h>
 #include <limits.h>
+#include <math.h>
+#include <stdlib.h>
 
 //////////////////////---task 1---//////////////////////////////////////////////////////////////////////////////////////
 void swapRowsWithMinAndMaxElem(matrix m) {
@@ -96,6 +99,7 @@ void test_sortRowsByMinElements_squareMatrix() {
             3, 3);
 
     assert(isTwoMatricesEqual(m1, m2));
+
 }
 
 void test_sortRowsByMinElements_notSquareMatrix1() {
@@ -117,6 +121,7 @@ void test_sortRowsByMinElements_notSquareMatrix1() {
             3, 4);
 
     assert(isTwoMatricesEqual(m1, m2));
+
 }
 
 
@@ -141,6 +146,8 @@ void test_sortRowsByMinElements_notSquareMatrix2() {
             4, 3);
 
     assert(isTwoMatricesEqual(m1, m2));
+
+
 }
 
 void test_sortRowsByMinElements() {
@@ -183,6 +190,7 @@ void test_sortColsByMinElement_squareMatrix() {
             3, 3);
 
     assert(isTwoMatricesEqual(m1, m2));
+
 }
 
 void test_sortColsByMinElement_nonSquareMatrix1() {
@@ -204,6 +212,7 @@ void test_sortColsByMinElement_nonSquareMatrix1() {
             3, 4);
 
     assert(isTwoMatricesEqual(m1, m2));
+
 }
 
 void test_sortColsByMinElement_nonSquareMatrix2() {
@@ -298,6 +307,7 @@ void test_getSquareOfMatrixIfSymmetric_squareMatrix2() {
             3, 3);
 
     assert(isTwoMatricesEqual(m1, m2));
+
 }
 
 void test_getSquareOfMatrixIfSymmetric() {
@@ -374,6 +384,7 @@ void test_transposeIfMatrixHasNotEqualSumOfRows_MatrixHaveNotUniqeSumElemOfRows(
             3, 3
     );
     assert(isTwoMatricesEqual(m1, m2));
+
 }
 
 
@@ -438,6 +449,7 @@ void test_isMutuallyInverseMatrices_ItsTrue() {
                      27, -29, 24},
             3, 3
     );
+
     assert(isMutuallyInverseMatrices(m1, m2) == true);
 }
 
@@ -457,6 +469,7 @@ void test_isMutuallyInverseMatrices_ItsFalse() {
                      27, -29, 24},
             3, 3
     );
+
     assert(isMutuallyInverseMatrices(m1, m2) == false);
 }
 
@@ -477,6 +490,7 @@ void test_isMutuallyInverseMatrices_NonSquareMatrix() {
                      3, 2},
             3, 2
     );
+
     assert(isMutuallyInverseMatrices(m1, m2) == false);
 }
 
@@ -494,9 +508,6 @@ int max(int a, int b) {
 
     return b;
 }
-
-#include <limits.h>
-#include <math.h>
 
 long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int size = m.nRows + m.nCols - 1;
@@ -551,6 +562,7 @@ void test_findSumOfMaxesOfPseudoDiagonal_positiveAndNegativeElemInMatrix() {
             },
             4, 4);
     assert(findSumOfMaxesOfPseudoDiagonal(m1) == 4);
+    freeMemMatrix(m1);
 }
 
 
@@ -657,24 +669,232 @@ void test_getMinInArea() {
     test_getMinInArea__matrixInOneCol();
 }
 
+////////////////////////////////////////////---task 9---////////////////////////////////////////////////////////////////
+
+float getDistance(int *a, int n) {
+    float distance = 0;
+    for (int i = 0; i < n; i++)
+        distance += (float) (a[i] * a[i]);
+
+    distance = sqrtf(distance);
+    return distance;
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    float rowsCriteria[m.nRows];
+    for (int i = 0; i < m.nRows; i++)
+        rowsCriteria[i] = criteria(m.values[i], m.nCols);
+
+    for (int i = 1; i < m.nRows; i++)
+        for (int j = i; j > 0 && rowsCriteria[j - 1] > rowsCriteria[j]; j--) {
+            swapF(&rowsCriteria[j - 1], &rowsCriteria[j]);
+            swapRows(m, j, j - 1);
+        }
+}
+
+void sortByDistance(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
+
+/////////////////////////////////////////////---test task 9---/////////////////////////////////////////////////////////
+
+void test_sortByDistance_RandomPoints() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {
+                    3, 2, 6,//7
+                    3, 4, 0,//5
+                    6, 8, 0//10
+            },
+            3, 3
+    );
+
+    sortByDistance(m1);
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    3, 4, 0,
+                    3, 2, 6,
+                    6, 8, 0
+            },
+            3, 3
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+}
+
+void test_sortByDistance_oneElem() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {
+                    1
+            },
+            1, 1
+    );
+
+    sortByDistance(m1);
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    1
+            },
+            1, 1
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+}
+
+void test_sortByDistance_oneRow() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {
+                    1, 3, 5, 6
+            },
+            1, 4
+    );
+
+    sortByDistance(m1);
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    1, 3, 5, 6
+            },
+            1, 4
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+}
+
+void test_sortByDistance_oneCol() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {
+                    1,
+                    5,
+                    3,
+                    7
+            },
+            4, 1
+    );
+
+    sortByDistance(m1);
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    1,
+                    3,
+                    5,
+                    7
+            },
+            4, 1
+    );
+    assert(isTwoMatricesEqual(m1, m2));
+}
+
+void test_sortByDistance() {
+    test_sortByDistance_RandomPoints();
+    test_sortByDistance_oneElem();
+    test_sortByDistance_oneRow();
+    test_sortByDistance_oneCol();
+}
+
+///////////////////////////////////---task 10---/////////////////////////////////////////////////////////////////////////
+int cmp_long_long(const void *pa, const void *pb) {
+    long long arg1 = *(const long long *) pa;
+    long long arg2 = *(const long long *) pb;
+
+    if (arg1 < arg2)
+        return -1;
+    if (arg1 > arg2)
+        return 1;
+    return 0;
+}
+
+int countNUnique(long long *a, int n) {
+    if (n == 1)
+        return 1;
+
+    qsort(a, n, sizeof(long long), cmp_long_long);
+    int counter = 1;
+    int i = 1;
+    while (i < n) {
+        if (a[i] != a[i - 1])
+            counter++;
+        i++;
+    }
+
+    return counter;
+}
+
+int countEqClassesByRowsSum(matrix m) {
+    long long rowSums[m.nRows];
+    for (int i = 0; i < m.nRows; i++)
+        rowSums[i] = getSum(m.values[i], m.nCols);
+
+    return countNUnique(rowSums, m.nRows);
+}
+
+///////////////////////////////////////////---test task 10----//////////////////////////////////////////////////////////
+void test_countEqClassesByRowsSum_MatrixWithOnlyDifferentRowsSum() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1, 2, 3,
+                    4, 5, 6,
+                    7, 8, 9
+            },
+            3, 3
+    );
+
+    assert(countEqClassesByRowsSum(m) == 3);
+}
+
+void test_countEqClassesByRowsSum_MatrixWithEqualSum() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1, 2,
+                    3, 0,
+                    -1, 4
+            },
+            3, 2
+    );
+
+    assert(countEqClassesByRowsSum(m) == 1);
+}
+
+void test_countEqClassesByRowsSum_MatrixFromOneElem() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1
+            },
+            1, 1
+    );
+
+    assert(countEqClassesByRowsSum(m) == 1);
+}
+
+void test_countEqClassesByRowsSum() {
+    test_countEqClassesByRowsSum_MatrixWithOnlyDifferentRowsSum();
+    test_countEqClassesByRowsSum_MatrixWithEqualSum();
+    test_countEqClassesByRowsSum_MatrixFromOneElem();
+}
+
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
-    test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
-    test_swapRowsWithMinAndMaxElem_maxAndMinInDifferentRows();
+    //test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
+    //test_swapRowsWithMinAndMaxElem_maxAndMinInDifferentRows();
 
-    test_sortRowsByMinElements();
+    //test_sortRowsByMinElements();
 
-    test_sortColsByMinElement();
+    //test_sortColsByMinElement();
 
-    test_getSquareOfMatrixIfSymmetric();
+    //test_getSquareOfMatrixIfSymmetric();
 
-    test_transposeIfMatrixHasNotEqualSumOfRows();
+    //test_transposeIfMatrixHasNotEqualSumOfRows();
 
-    test_isMutuallyInverseMatrices();
+    //test_isMutuallyInverseMatrices();
 
-    test_findSumOfMaxesOfPseudoDiagonal();
+    //test_findSumOfMaxesOfPseudoDiagonal();
 
-    test_getMinInArea();
+    //test_getMinInArea();
 
+    //test_sortByDistance();
+
+    test_countEqClassesByRowsSum();
     return 0;
 }

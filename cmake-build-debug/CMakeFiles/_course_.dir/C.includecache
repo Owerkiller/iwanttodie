@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.h
+
 C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.h
 malloc.h
 -
@@ -15,14 +17,16 @@ stdbool.h
 C:/Users/ivano/CLionProjects/_course_/main.c
 libs/data_structures/matrix/matrix.h
 C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.h
+libs/algorithms/algorithms.h
+C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.h
 assert.h
 -
 stdio.h
 -
 limits.h
 -
-limits.h
--
 math.h
+-
+stdlib.h
 -
 

@@ -2,7 +2,9 @@
 #define _COURSE__ALGORITHMS_H
 
 
-void swap(int* a, int* b);
+void swap(int *a, int *b);
+
+void swapF(float *a, float *b);
 
 int split(int *a, const int left, const int right, const int pivot);
 

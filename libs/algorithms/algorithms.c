@@ -6,6 +6,11 @@ void swap(int *a, int *b) {
     *b = k;
 }
 
+void swapF(float *a, float *b){
+    int k = *a;
+    *a = *b;
+    *b = k;
+}
 int split(int *a, const int left, const int right, const int pivot) {
     int i = left;
     int j = right;
