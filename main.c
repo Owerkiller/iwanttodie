@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <math.h>
 #include <stdlib.h>
+#include <memory.h>
 
 //////////////////////---task 1---//////////////////////////////////////////////////////////////////////////////////////
 void swapRowsWithMinAndMaxElem(matrix m) {
@@ -896,20 +897,20 @@ int getNSpecialElement(matrix m) {
 
 ////////////////////////////////////////////////////---test task 11---//////////////////////////////////////////////////
 
-void test_getNSpecialElement_matrixWithSpecialElems(){
+void test_getNSpecialElement_matrixWithSpecialElems() {
     matrix m = createMatrixFromArray(
             (int[]) {
-            15, 100, 3,
-            10, 7, 95,
-            1, 6, 3
+                    15, 100, 3,
+                    10, 7, 95,
+                    1, 6, 3
             },
             3, 3
-            );
+    );
 
     assert(getNSpecialElement(m) == 3);
 }
 
-void test_getNSpecialElement_matrixWithoutSpecialElems(){
+void test_getNSpecialElement_matrixWithoutSpecialElems() {
     matrix m = createMatrixFromArray(
             (int[]) {
                     8, 10, 3,
@@ -922,23 +923,92 @@ void test_getNSpecialElement_matrixWithoutSpecialElems(){
     assert(getNSpecialElement(m) == 0);
 }
 
-void test_getNSpecialElement_matrixFromOneElem(){
+void test_getNSpecialElement_matrixFromOneElem() {
     matrix m = createMatrixFromArray(
-            (int []) {
-                1
+            (int[]) {
+                    1
             },
             1, 1
-            );
+    );
 
     assert(getNSpecialElement(m) == 1);
 }
 
 
-void test_getNSpecialElement(){
+void test_getNSpecialElement() {
     test_getNSpecialElement_matrixWithSpecialElems();
     test_getNSpecialElement_matrixWithoutSpecialElems();
     test_getNSpecialElement_matrixFromOneElem();
 }
+
+
+///////////////////////////////////////////---task 12---////////////////////////////////////////////////////////////////
+position getLeftMin(matrix m) {
+    int min = m.values[0][0];
+    position minPos = {0, 0};
+
+    for (int i = 0; i < m.nCols; i++)
+        for (int j = 0; j < m.nRows; j++)
+            if (m.values[i][j] < min) {
+                min = m.values[i][j];
+                minPos.rowIndex = i;
+                minPos.colIndex = j;
+            }
+
+    return minPos;
+}
+
+void swapPenultimateRow(matrix m, int n) { //зачем тут n?
+    if (m.nRows < 2) {
+        fprintf(stderr, "can't swap");
+        exit(228);
+    }
+
+    position min = getLeftMin(m);
+
+    int col[m.nRows];
+    for (int i = 0; i < m.nRows; i++)
+        col[i] = m.values[i][min.colIndex];
+
+    memcpy(m.values[m.nRows - 2], col, sizeof(int) * m.nCols);
+}
+
+///////////////////////////////////////---test task 12---///////////////////////////////////////////////////////////////
+
+void test_swapPenultimateRow_squareMatrix() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {
+                    1, 2, 3,
+                    4, 5, 6,
+                    7, 8, 9
+            },
+            3, 3
+    );
+
+    swapPenultimateRow(m1, 0);
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    1, 2, 3,
+                    1, 4, 7,
+                    7, 8, 9
+            },
+            3, 3
+    );
+
+    assert(isTwoMatricesEqual(m1, m2));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+}
+
+void test_swapPenultimateRow() {
+    test_swapPenultimateRow_squareMatrix();
+}
+
+
+///////////////////////////////////////////---task 13---////////////////////////////////////////////////////////////////
+
+
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
     //test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
@@ -963,5 +1033,8 @@ int main() {
     test_countEqClassesByRowsSum();
 
     test_getNSpecialElement();
+
+    test_swapPenultimateRow();
+
     return 0;
 }
