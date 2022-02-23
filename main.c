@@ -1031,27 +1031,27 @@ int countNonDescendingRowMatrices(matrix *ms, int nMatrices) {
 }
 
 ///////////////////////////////////////////////////---test task 13---///////////////////////////////////////////////////
-void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNeedbleMatrix(){
+void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNeedbleMatrix() {
     matrix *ms = createArrayOfMatrixFromArray(
             (int[]) {
-                1, 5,
-                7, 3,
+                    1, 5,
+                    7, 3,
 
-                1, 6,
-                2, 2,
+                    1, 6,
+                    2, 2,
 
-                5, 4,
-                2, 3,
+                    5, 4,
+                    2, 3,
 
-                1, 3,
-                7, 9
+                    1, 3,
+                    7, 9
             },
             4, 2, 2);
 
-    assert(countNonDescendingRowMatrices(ms,4) == 2);
+    assert(countNonDescendingRowMatrices(ms, 4) == 2);
 }
 
-void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNotNeedbleMatrix(){
+void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNotNeedbleMatrix() {
     matrix *ms = createArrayOfMatrixFromArray(
             (int[]) {
                     1, 5,
@@ -1068,23 +1068,96 @@ void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNotNeedbleMatrix(){
             },
             4, 2, 2);
 
-    assert(countNonDescendingRowMatrices(ms,4) == 0);
+    assert(countNonDescendingRowMatrices(ms, 4) == 0);
 
 }
 
 
-void test_countNonDescendingRowMatrices(){
+void test_countNonDescendingRowMatrices() {
     test_countNonDescendingRowMatrices_arrayOfMatricesHaveNeedbleMatrix();
 }
 
 
 ///////////////////////////////---task 14---////////////////////////////////////////////////////////////////////////////
 
+int countValues(const int *a, int n, int value) {
+    int counter = 0;
+    for (int i = 0; i < n; i++)
+        if (a[i] == value)
+            counter++;
 
+    return counter;
+}
+
+int countZeroRows(matrix m) {
+    int counter = 0;
+
+    for (int i = 0; i < m.nRows; i++)
+        if (countValues(m.values[i], m.nCols, 0) == m.nCols)
+            counter++;
+
+    return counter;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+    int zeroCount[nMatrix];
+    for (int k = 0; k < nMatrix; k++)
+        zeroCount[k] = countZeroRows(ms[k]);
+
+    int max = getMax(zeroCount, nMatrix);
+
+    for (int i = 0; i < nMatrix; i++)
+        if (zeroCount[i] == max)
+            outputMatrix(ms[i]);
+}
+
+void test_countZeroRows_ZeroMatrix() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    0, 0, 0,
+                    0, 0, 0,
+                    0, 0, 0
+            },
+            3, 3
+    );
+
+    assert(countZeroRows(m) == 3);
+}
+
+void test_countZeroRows_MatrixWithZeroRows() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    0, 0, 0,
+                    1, 1, 1,
+                    0, 0, 0
+            },
+            3, 3
+    );
+
+    assert(countZeroRows(m) == 2);
+}
+
+void test_countZeroRows_MatrixWithoutZeroRows() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1, 1, 1,
+                    1, 1, 1,
+                    1, 1, 1
+            },
+            3, 3
+    );
+    assert(countZeroRows(m) == 0);
+}
+
+void test_countZeroRows() {
+    test_countZeroRows_ZeroMatrix();
+    test_countZeroRows_MatrixWithZeroRows();
+    test_countZeroRows_MatrixWithoutZeroRows();
+}
 
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
-    //test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
+    test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
     //test_swapRowsWithMinAndMaxElem_maxAndMinInDifferentRows();
 
     //test_sortRowsByMinElements();
@@ -1111,6 +1184,7 @@ int main() {
 
     test_countNonDescendingRowMatrices();
 
+    test_countZeroRows();
 
 
     return 0;
