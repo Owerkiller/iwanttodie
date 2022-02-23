@@ -1154,7 +1154,79 @@ void test_countZeroRows() {
     test_countZeroRows_MatrixWithZeroRows();
     test_countZeroRows_MatrixWithoutZeroRows();
 }
+////////////////////////////////////////---task 15---///////////////////////////////////////////////////////////////////
 
+int getMatrixNorm ( matrix m){
+    int norm = abs(m.values[0][0]);
+
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (abs (m.values[i][j]) > norm)
+                norm = abs (m. values[i][j]);
+
+    return norm;
+}
+
+
+void outputMatrixWithMaxNorm(matrix *ms, int nMatrix) {
+    int norms[nMatrix];
+    for (int i = 0; i < nMatrix; i++)
+        norms[i] = getMatrixNorm(ms[i]);
+
+    int minNorms = getMin(norms, nMatrix);
+
+    for (int i = 0; i < nMatrix; i++)
+        if (norms[i] == minNorms)
+            outputMatrix(ms[i]);
+}
+
+
+////////////////////////////////////////////---test task 15---//////////////////////////////////////////////////////////
+
+void test_getMatrixNorm_zeroMatrix(){
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                0, 0, 0,
+                0, 0, 0,
+                0, 0, 0
+            },
+            3, 3
+            );
+    assert (getMatrixNorm(m) == 0);
+
+    freeMemMatrix(m);
+}
+
+void test_getMatrixNorm_standardMatrix(){
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1, 5, 7,
+                    9, -34, 5,
+                    8, 3 ,2
+            },
+            3, 3
+    );
+    assert (getMatrixNorm(m) == 34);
+
+}
+
+
+void test_getMatrixNorm_OneElementsIsMatrix(){
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                1
+            },
+            1, 1
+    );
+    assert (getMatrixNorm(m) == 1);
+
+}
+
+void test_getMatrixNorm(){
+    test_getMatrixNorm_zeroMatrix();
+    test_getMatrixNorm_standardMatrix();
+    test_getMatrixNorm_OneElementsIsMatrix();
+}
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
     test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
@@ -1186,6 +1258,7 @@ int main() {
 
     test_countZeroRows();
 
+    test_getMatrixNorm();
 
     return 0;
 }
