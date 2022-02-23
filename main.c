@@ -1007,6 +1007,79 @@ void test_swapPenultimateRow() {
 
 
 ///////////////////////////////////////////---task 13---////////////////////////////////////////////////////////////////
+bool isNonDescendingSorted(int *a, int n) {
+    for (int i = 1; i < n; i++)
+        if (a[i] < a[i - 1])
+            return false;
+    return true;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (int i = 0; i < m.nRows; i++)
+        if (!isNonDescendingSorted(m.values[i], m.nCols))
+            return false;
+    return true;
+}
+
+int countNonDescendingRowMatrices(matrix *ms, int nMatrices) {
+    int counter = 0;
+    for (int i = 0; i < nMatrices; i++)
+        if (hasAllNonDescendingRows(ms[i]))
+            counter++;
+
+    return counter;
+}
+
+///////////////////////////////////////////////////---test task 13---///////////////////////////////////////////////////
+void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNeedbleMatrix(){
+    matrix *ms = createArrayOfMatrixFromArray(
+            (int[]) {
+                1, 5,
+                7, 3,
+
+                1, 6,
+                2, 2,
+
+                5, 4,
+                2, 3,
+
+                1, 3,
+                7, 9
+            },
+            4, 2, 2);
+
+    assert(countNonDescendingRowMatrices(ms,4) == 2);
+}
+
+void test_countNonDescendingRowMatrices_arrayOfMatricesHaveNotNeedbleMatrix(){
+    matrix *ms = createArrayOfMatrixFromArray(
+            (int[]) {
+                    1, 5,
+                    7, 3,
+
+                    6, 1,
+                    2, 1,
+
+                    5, 4,
+                    2, 3,
+
+                    3, 1,
+                    9, 7
+            },
+            4, 2, 2);
+
+    assert(countNonDescendingRowMatrices(ms,4) == 0);
+
+}
+
+
+void test_countNonDescendingRowMatrices(){
+    test_countNonDescendingRowMatrices_arrayOfMatricesHaveNeedbleMatrix();
+}
+
+
+///////////////////////////////---task 14---////////////////////////////////////////////////////////////////////////////
+
 
 
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
@@ -1035,6 +1108,10 @@ int main() {
     test_getNSpecialElement();
 
     test_swapPenultimateRow();
+
+    test_countNonDescendingRowMatrices();
+
+
 
     return 0;
 }
