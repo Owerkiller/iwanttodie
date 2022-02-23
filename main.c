@@ -874,6 +874,71 @@ void test_countEqClassesByRowsSum() {
     test_countEqClassesByRowsSum_MatrixFromOneElem();
 }
 
+//////////////////////////////////---task 11---/////////////////////////////////////////////////////////////////////////
+
+int getNSpecialElement(matrix m) {
+    int countSpecialElems = 0;
+    for (int j = 0; j < m.nCols; j++) {
+        int specialElem = m.values[0][j];
+        int sumOfCol = 0;
+        for (int i = 1; i < m.nRows; i++) {
+            if (m.values[i][j] > specialElem) {
+                sumOfCol += specialElem;
+                specialElem = m.values[i][j];
+            } else
+                sumOfCol += m.values[i][j];
+        }
+        if (specialElem > sumOfCol)
+            countSpecialElems++;
+    }
+    return countSpecialElems;
+}
+
+////////////////////////////////////////////////////---test task 11---//////////////////////////////////////////////////
+
+void test_getNSpecialElement_matrixWithSpecialElems(){
+    matrix m = createMatrixFromArray(
+            (int[]) {
+            15, 100, 3,
+            10, 7, 95,
+            1, 6, 3
+            },
+            3, 3
+            );
+
+    assert(getNSpecialElement(m) == 3);
+}
+
+void test_getNSpecialElement_matrixWithoutSpecialElems(){
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    8, 10, 3,
+                    10, 7, 4,
+                    5, 6, 3
+            },
+            3, 3
+    );
+
+    assert(getNSpecialElement(m) == 0);
+}
+
+void test_getNSpecialElement_matrixFromOneElem(){
+    matrix m = createMatrixFromArray(
+            (int []) {
+                1
+            },
+            1, 1
+            );
+
+    assert(getNSpecialElement(m) == 1);
+}
+
+
+void test_getNSpecialElement(){
+    test_getNSpecialElement_matrixWithSpecialElems();
+    test_getNSpecialElement_matrixWithoutSpecialElems();
+    test_getNSpecialElement_matrixFromOneElem();
+}
 //////////////////////////////////////main//////////////////////////////////////////////////////////////////////////////
 int main() {
     //test_swapRowsWithMinAndMaxElem_maxAndMinInSameRow();
@@ -896,5 +961,7 @@ int main() {
     //test_sortByDistance();
 
     test_countEqClassesByRowsSum();
+
+    test_getNSpecialElement();
     return 0;
 }
