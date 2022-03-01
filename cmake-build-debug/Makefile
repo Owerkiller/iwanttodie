@@ -116,122 +116,37 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named _course_
+# Target rules for targets named project
 
 # Build rule for target.
-_course_: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _course_
-.PHONY : _course_
+project: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project
+.PHONY : project
 
 # fast build rule for target.
-_course_/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/build
-.PHONY : _course_/fast
+project/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/build
+.PHONY : project/fast
 
 #=============================================================================
-# Target rules for targets named data_structures
+# Target rules for targets named str
 
 # Build rule for target.
-data_structures: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 data_structures
-.PHONY : data_structures
+str: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 str
+.PHONY : str
 
 # fast build rule for target.
-data_structures/fast:
-	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
-.PHONY : data_structures/fast
-
-#=============================================================================
-# Target rules for targets named algorithms
-
-# Build rule for target.
-algorithms: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 algorithms
-.PHONY : algorithms
-
-# fast build rule for target.
-algorithms/fast:
-	$(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/build
-.PHONY : algorithms/fast
-
-libs/algorithms/array/array.obj: libs/algorithms/array/array.c.obj
-.PHONY : libs/algorithms/array/array.obj
-
-# target to build an object file
-libs/algorithms/array/array.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/algorithms/array/array.c.obj
-.PHONY : libs/algorithms/array/array.c.obj
-
-libs/algorithms/array/array.i: libs/algorithms/array/array.c.i
-.PHONY : libs/algorithms/array/array.i
-
-# target to preprocess a source file
-libs/algorithms/array/array.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/algorithms/array/array.c.i
-.PHONY : libs/algorithms/array/array.c.i
-
-libs/algorithms/array/array.s: libs/algorithms/array/array.c.s
-.PHONY : libs/algorithms/array/array.s
-
-# target to generate assembly for a file
-libs/algorithms/array/array.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/algorithms/array/array.c.s
-.PHONY : libs/algorithms/array/array.c.s
-
-libs/data_structures/matrix/matrix.obj: libs/data_structures/matrix/matrix.c.obj
-.PHONY : libs/data_structures/matrix/matrix.obj
-
-# target to build an object file
-libs/data_structures/matrix/matrix.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/data_structures/matrix/matrix.c.obj
-.PHONY : libs/data_structures/matrix/matrix.c.obj
-
-libs/data_structures/matrix/matrix.i: libs/data_structures/matrix/matrix.c.i
-.PHONY : libs/data_structures/matrix/matrix.i
-
-# target to preprocess a source file
-libs/data_structures/matrix/matrix.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/data_structures/matrix/matrix.c.i
-.PHONY : libs/data_structures/matrix/matrix.c.i
-
-libs/data_structures/matrix/matrix.s: libs/data_structures/matrix/matrix.c.s
-.PHONY : libs/data_structures/matrix/matrix.s
-
-# target to generate assembly for a file
-libs/data_structures/matrix/matrix.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/data_structures/matrix/matrix.c.s
-.PHONY : libs/data_structures/matrix/matrix.c.s
-
-libs/data_structures/vector/vector.obj: libs/data_structures/vector/vector.c.obj
-.PHONY : libs/data_structures/vector/vector.obj
-
-# target to build an object file
-libs/data_structures/vector/vector.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/data_structures/vector/vector.c.obj
-.PHONY : libs/data_structures/vector/vector.c.obj
-
-libs/data_structures/vector/vector.i: libs/data_structures/vector/vector.c.i
-.PHONY : libs/data_structures/vector/vector.i
-
-# target to preprocess a source file
-libs/data_structures/vector/vector.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/data_structures/vector/vector.c.i
-.PHONY : libs/data_structures/vector/vector.c.i
-
-libs/data_structures/vector/vector.s: libs/data_structures/vector/vector.c.s
-.PHONY : libs/data_structures/vector/vector.s
-
-# target to generate assembly for a file
-libs/data_structures/vector/vector.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/libs/data_structures/vector/vector.c.s
-.PHONY : libs/data_structures/vector/vector.c.s
+str/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/build
+.PHONY : str/fast
 
 main.obj: main.c.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/main.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.c.obj
 .PHONY : main.c.obj
 
 main.i: main.c.i
@@ -239,7 +154,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -247,8 +162,32 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\_course_.dir\build.make CMakeFiles/_course_.dir/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.c.s
 .PHONY : main.c.s
+
+string/string_.obj: string/string_.c.obj
+.PHONY : string/string_.obj
+
+# target to build an object file
+string/string_.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.obj
+.PHONY : string/string_.c.obj
+
+string/string_.i: string/string_.c.i
+.PHONY : string/string_.i
+
+# target to preprocess a source file
+string/string_.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.i
+.PHONY : string/string_.c.i
+
+string/string_.s: string/string_.c.s
+.PHONY : string/string_.s
+
+# target to generate assembly for a file
+string/string_.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.s
+.PHONY : string/string_.c.s
 
 # Help Target
 help:
@@ -258,21 +197,14 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... _course_
-	@echo ... algorithms
-	@echo ... data_structures
-	@echo ... libs/algorithms/array/array.obj
-	@echo ... libs/algorithms/array/array.i
-	@echo ... libs/algorithms/array/array.s
-	@echo ... libs/data_structures/matrix/matrix.obj
-	@echo ... libs/data_structures/matrix/matrix.i
-	@echo ... libs/data_structures/matrix/matrix.s
-	@echo ... libs/data_structures/vector/vector.obj
-	@echo ... libs/data_structures/vector/vector.i
-	@echo ... libs/data_structures/vector/vector.s
+	@echo ... project
+	@echo ... str
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... string/string_.obj
+	@echo ... string/string_.i
+	@echo ... string/string_.s
 .PHONY : help
 
 

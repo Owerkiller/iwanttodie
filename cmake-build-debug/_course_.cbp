@@ -5,7 +5,7 @@
 		<Option title="_course_"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;CMake Files\libs\algorithms\;"/>
+		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug"/>
@@ -17,8 +17,8 @@
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="_course_">
-				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/_course_.exe" prefix_auto="0" extension_auto="0"/>
+			<Target title="project">
+				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/project.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -29,14 +29,14 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 _course_"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 project"/>
 					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="_course_/fast">
-				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/_course_.exe" prefix_auto="0" extension_auto="0"/>
+			<Target title="project/fast">
+				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/project.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -47,7 +47,7 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 _course_/fast"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 project/fast"/>
 					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -63,6 +63,42 @@
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="str">
+				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libstr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 str"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="str/fast">
+				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libstr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 str/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug"/>
 				<Option type="4"/>
@@ -73,123 +109,25 @@
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="data_structures">
-				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/libdata_structures.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 data_structures"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="data_structures/fast">
-				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/libdata_structures.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 data_structures/fast"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="algorithms">
-				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/libalgorithms.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 algorithms"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="algorithms/fast">
-				<Option output="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/libalgorithms.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 algorithms/fast"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/ivano/CLionProjects/_course_/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 		</Build>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.c">
-			<Option target="algorithms"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/algorithms.h">
-			<Option target="algorithms"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.c">
-			<Option target="_course_"/>
-			<Option target="algorithms"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/array/array.h">
-			<Option target="_course_"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/main.c">
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.c">
-			<Option target="_course_"/>
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/matrix/matrix.h">
-			<Option target="_course_"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/vector/vector.c">
-			<Option target="_course_"/>
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/vector/vector.h">
-			<Option target="_course_"/>
-		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/main.c">
-			<Option target="_course_"/>
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/string_.c">
+			<Option target="str"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/string_.h">
+			<Option target="str"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks/allTasks.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks/removeNonLetters.h">
+			<Option target="project"/>
+			<Option target="str"/>
 		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\libs\"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/data_structures/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\libs\data_structures\"/>
-		</Unit>
-		<Unit filename="C:/Users/ivano/CLionProjects/_course_/libs/algorithms/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\libs\algorithms\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

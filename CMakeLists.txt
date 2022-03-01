@@ -3,8 +3,15 @@ project(_course_ C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(_course_ main.c libs/algorithms/array/array.c libs/algorithms/array/array.h libs/data_structures/vector/vector.c libs/data_structures/vector/vector.h libs/data_structures/matrix/matrix.c libs/data_structures/matrix/matrix.h)
+add_executable(project main.c string/tasks/removeNonLetters.h string/tasks/allTasks.h)
 
-add_subdirectory(libs)
-target_link_libraries(_course_ data_structures)
-target_link_libraries(_course_ algorithms)
+add_library (str string/string_.h string/string_.c
+        string/tasks/removeNonLetters.h
+        #string/tasks/digitToStartTransform.h
+        #string/tasks/reverseWords.h
+        )
+
+
+
+
+target_link_libraries(project str)
