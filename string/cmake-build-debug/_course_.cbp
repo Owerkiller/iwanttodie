@@ -135,6 +135,9 @@
 			<Option target="project"/>
 			<Option target="str"/>
 		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks/spaceInsteadDigit.h">
+			<Option target="project"/>
+		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

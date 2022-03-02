@@ -1,6 +1,8 @@
 #ifndef _COURSE__STRING__H
 #define _COURSE__STRING__H
 
+#include <ctype.h>
+
 #define ASSERT_STRING(expected, got) assertString(expected, got, \
 __FILE__ , __FUNCTION__ , __LINE__ )
 

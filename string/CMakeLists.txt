@@ -3,7 +3,7 @@ project(_course_ C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(project main.c tasks/removeNonLetters.h tasks/allTasks.h tasks/removeAdjacentEqualLetter.h tasks/digitToStart.h)
+add_executable(project main.c tasks/removeNonLetters.h tasks/allTasks.h tasks/removeAdjacentEqualLetter.h tasks/digitToStart.h tasks/spaceInsteadDigit.h)
 
 add_library (str string_.h string_.c
         tasks/removeNonLetters.h
