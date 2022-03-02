@@ -119,7 +119,13 @@
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/string_.h">
 			<Option target="str"/>
 		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks">
+			<Option target="str"/>
+		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks/allTasks.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks/removeAdjacentEqualLetter.h">
 			<Option target="project"/>
 		</Unit>
 		<Unit filename="C:/Users/ivano/CLionProjects/_course_/string/tasks/removeNonLetters.h">
