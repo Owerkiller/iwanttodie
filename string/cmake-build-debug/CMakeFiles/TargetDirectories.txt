@@ -1,0 +1,4 @@
+C:/Users/ivano/CLionProjects/_course_/string/cmake-build-debug/CMakeFiles/project.dir
+C:/Users/ivano/CLionProjects/_course_/string/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ivano/CLionProjects/_course_/string/cmake-build-debug/CMakeFiles/str.dir
+C:/Users/ivano/CLionProjects/_course_/string/cmake-build-debug/CMakeFiles/rebuild_cache.dir

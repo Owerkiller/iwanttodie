@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/ivano/CLionProjects/_course_/string/main.c
+tasks/allTasks.h
+C:/Users/ivano/CLionProjects/_course_/string/tasks/allTasks.h
+stdio.h
+-
+
+C:/Users/ivano/CLionProjects/_course_/string/string_.h
+
+C:/Users/ivano/CLionProjects/_course_/string/tasks/allTasks.h
+removeNonLetters.h
+C:/Users/ivano/CLionProjects/_course_/string/tasks/removeNonLetters.h
+removeAdjacentEqualLetter.h
+C:/Users/ivano/CLionProjects/_course_/string/tasks/removeAdjacentEqualLetter.h
+
+C:/Users/ivano/CLionProjects/_course_/string/tasks/removeAdjacentEqualLetter.h
+../string_.h
+C:/Users/ivano/CLionProjects/_course_/string/string_.h
+
+C:/Users/ivano/CLionProjects/_course_/string/tasks/removeNonLetters.h
+../string_.h
+C:/Users/ivano/CLionProjects/_course_/string/string_.h
+ctype.h
+-
+
